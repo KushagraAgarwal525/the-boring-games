@@ -1,0 +1,27 @@
+.left-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.lr-action-buttons {
+    display: flex;
+    gap: 30px;
+}
+
+.left-right button {
+    background-color: #eeeeee;
+    color: #121212;
+    outline: none;
+    border: none;
+    padding: 20px 40px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.lr-output {
+    overflow-wrap: anywhere;
+    font-size: 24px;
+    letter-spacing: 2px;
+}
