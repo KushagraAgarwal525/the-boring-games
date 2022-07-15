@@ -1,40 +1,100 @@
+// import Button from "@mui/material/Button";
+// import Menu from "@mui/material/Menu";
+// import MenuItem from "@mui/material/MenuItem";
+// import Card from "@mui/material/Card";
+// import CardContent from "@mui/material/CardContent";
+// import Typography from "@mui/material/Typography";
+import {
+  Button,
+  Menu,
+  MenuItem,
+  Card,
+  CardContent,
+  Typography,
+} from "@mui/material";
+
+import { useState } from "react";
+
 const HelpWidget = () => {
-	return (
-		<svg
-			xmlns='http://www.w3.org/2000/svg'
-			xmlnsXlink='http://www.w3.org/1999/xlink'
-			width='36'
-			zoomAndPan='magnify'
-			viewBox='0 0 187.5 187.499992'
-			height='36'
-			preserveAspectRatio='xMidYMid meet'
-			version='1.0'
-            className="help-widget"
-		>
-			<defs>
-				<clipPath id='id1'>
-					<path
-						d='M 2.453125 2.453125 L 184.703125 2.453125 L 184.703125 184.703125 L 2.453125 184.703125 Z M 2.453125 2.453125 '
-						clip-rule='nonzero'
-					/>
-				</clipPath>
-			</defs>
-			<g clip-path='url(#id1)'>
-				<path
-					fill='#eeeeee'
-					d='M 93.578125 2.453125 C 43.253906 2.453125 2.453125 43.253906 2.453125 93.578125 C 2.453125 143.90625 43.253906 184.703125 93.578125 184.703125 C 143.90625 184.703125 184.703125 143.90625 184.703125 93.578125 C 184.703125 43.253906 143.90625 2.453125 93.578125 2.453125 Z M 93.578125 178.628906 C 46.683594 178.628906 8.527344 140.476562 8.527344 93.578125 C 8.527344 46.683594 46.683594 8.527344 93.578125 8.527344 C 140.476562 8.527344 178.628906 46.683594 178.628906 93.578125 C 178.628906 140.476562 140.476562 178.628906 93.578125 178.628906 Z M 93.578125 178.628906 '
-					fill-opacity='1'
-					fill-rule='nonzero'
-				/>
-			</g>
-			<path
-				fill='#eeeeee'
-				d='M 85.003906 110.578125 C 88.257812 88.847656 110.875 86.628906 110.875 70.667969 C 110.875 61.058594 103.1875 53.371094 93.578125 53.371094 C 83.96875 53.371094 76.285156 61.058594 76.285156 70.667969 L 76.285156 72.144531 L 64.015625 72.144531 L 64.015625 70.667969 C 64.015625 54.40625 77.320312 41.101562 93.578125 41.101562 C 109.839844 41.101562 123.144531 54.40625 123.144531 70.667969 C 123.144531 93.28125 100.378906 95.5 97.125 112.351562 C 96.683594 114.570312 96.683594 116.640625 96.683594 119.003906 L 84.414062 119.003906 C 84.414062 116.046875 84.5625 113.238281 85.003906 110.578125 Z M 84.414062 133.785156 L 96.683594 133.785156 L 96.683594 146.054688 L 84.414062 146.054688 Z M 84.414062 133.785156 '
-				fill-opacity='1'
-				fill-rule='nonzero'
-			/>
-		</svg>
-	);
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  function handleClick(event) {
+    if (anchorEl !== event.currentTarget) {
+      setAnchorEl(event.currentTarget);
+    }
+  }
+
+  function handleClose() {
+    setAnchorEl(null);
+  }
+  return (
+    <div className="help-widget">
+      <Button
+        aria-owns={anchorEl ? "simple-menu" : undefined}
+        aria-haspopup="true"
+        aria-label="Help"
+        onClick={handleClick}
+        onMouseOver={handleClick}
+      >
+        {/* prettier-ignore */}
+        <svg width="36" height="36" version="1.0" viewBox="0 0 187.5 187.5" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify"><defs><clipPath id="a"><path d="m2.4531 2.4531h182.25v182.25h-182.25z" /></clipPath></defs><g clipPath="url(#a)"><path d="m93.578 2.4531c-50.324 0-91.125 40.801-91.125 91.125 0 50.328 40.801 91.125 91.125 91.125 50.328 0 91.125-40.797 91.125-91.125 0-50.324-40.797-91.125-91.125-91.125zm0 176.18c-46.895 0-85.051-38.152-85.051-85.051 0-46.895 38.156-85.051 85.051-85.051 46.898 0 85.051 38.156 85.051 85.051 0 46.898-38.152 85.051-85.051 85.051z" fill="#eee" /></g><path d="m85.004 110.58c3.2539-21.73 25.871-23.949 25.871-39.91 0-9.6094-7.6875-17.297-17.297-17.297s-17.293 7.6875-17.293 17.297v1.4766h-12.27v-1.4766c0-16.262 13.305-29.566 29.562-29.566 16.262 0 29.566 13.305 29.566 29.566 0 22.613-22.766 24.832-26.02 41.684-0.44141 2.2188-0.44141 4.2891-0.44141 6.6523h-12.27c0-2.957 0.14844-5.7656 0.58984-8.4258zm-0.58984 23.207h12.27v12.27h-12.27z" fill="#eee" /></svg>
+      </Button>
+      <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+        MenuListProps={{ onMouseLeave: handleClose }}
+      >
+        <MenuItem onClick={handleClose} style={{ whiteSpace: "unset" }}>
+          <Card variant="outlined">
+            <CardContent>
+              <Typography variant="h5" component="div">
+                leftRight
+              </Typography>
+              <div>
+                <Typography variant="body2">
+                  Click left and right buttons on the screen and create amazing
+                  patterns using characters!
+                </Typography>
+              </div>
+            </CardContent>
+          </Card>
+        </MenuItem>
+        <MenuItem onClick={handleClose} style={{ whiteSpace: "unset" }}>
+          <Card variant="outlined">
+            <CardContent>
+              <Typography variant="h5" component="div">
+                circleDown
+              </Typography>
+              <div>
+                <Typography variant="body2">
+                  Click on circles as they keep getting smaller and smaller.
+                </Typography>
+              </div>
+            </CardContent>
+          </Card>
+        </MenuItem>
+        <MenuItem onClick={handleClose} style={{ whiteSpace: "unset" }}>
+          <Card variant="outlined">
+            <CardContent>
+              <div>
+                <Typography variant="h5" component="div">
+                  1%
+                </Typography>
+              </div>
+              <Typography variant="body2">
+                Guess the location of a point that you never see by clicking
+                somewhere inside the square. Less than 1% get a perfect score of
+                10!
+              </Typography>
+            </CardContent>
+          </Card>
+        </MenuItem>
+        <MenuItem></MenuItem>
+      </Menu>
+    </div>
+  );
 };
 
 export default HelpWidget;

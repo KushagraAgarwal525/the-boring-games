@@ -1,8 +1,11 @@
 *, *:hover, *::before, *::after {
-    background-color: #121212;
     color: #eeeeee;
     box-sizing: border-box;
     text-align: center;
+}
+
+body {
+    background-color: #121212;
 }
 
 .App {
@@ -21,6 +24,56 @@
 .help-widget {
     position: absolute;
     right: 30px;
+}
+
+.MuiMenu-paper {
+    max-width: 50vw!important;
+}
+
+.MuiCardContent-root {
+    display: flex!important;
+    gap: 20px;
+}
+
+.MuiPaper-outlined {
+    border: none!important;
+}
+
+.MuiTypography-body2 {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: #cfcfcf;
+    font-weight: 600!important;
+}
+
+.MuiTypography-h5 {
+    font-weight: 600!important;
+}
+
+.MuiMenuItem-root:hover {
+    background-color: #323232!important;
+}
+
+.MuiPopover-paper {
+    background-color: #222222!important;
+}
+
+.MuiCard-root {
+    background-color: transparent!important;
+}
+
+.MuiButton-root {
+    padding: 0px!important;
+    min-width: 0px!important;
+    min-height: 0px!important;
+    border: none!important;
+    background-color: transparent!important;
+
+}
+
+.MuiPopover-paper {
+    background-color: #222222;
 }
 
 .header-title {
@@ -47,40 +100,19 @@
 .game-banner {
     object-fit: scale-down;
     width: 100%;
+    height: 100%;
 }
 
 .game {
     /* position: relative; */
     background-color: transparent;
+    padding-bottom: 5px;
     transition: opacity 200ms ease-in-out;
 }
 
 .game:hover {
     opacity: 0.5;
 }
-/* 
-.game::after {
-    opacity: 0;
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(18, 18, 18, 0.5);
-    transition: opacity 200ms ease-in-out;
-}
-
-.game:hover::after {
-    opacity: 1;
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(18, 18, 18, 0.5);
-} */
 
 /**/
 
@@ -181,6 +213,13 @@
     .game-out-actions {
         margin: 10px;
     }
+    .help-widget svg {
+        width: 32px;
+        height: 32px;
+    }
+    .MuiCardContent-root {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 359px) {
@@ -189,5 +228,8 @@
     }
     .catalog-container {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    .MuiMenuItem-root {
+        word-wrap: break-word;
     }
 }
