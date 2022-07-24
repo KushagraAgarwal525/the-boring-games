@@ -100,7 +100,19 @@ function App() {
       {game === "Catalog" ? (
         <Catalog setGame={(game) => dispatch(setGame(game))} />
       ) : (
-        <Suspense fallback={<>Loading...</>}>{getGame(game)}</Suspense>
+        <>
+          <Suspense fallback={<>Loading...</>}>{getGame(game)}</Suspense>
+          <div className="ad-banner mobileHide">
+            <iframe
+              title="Advertisement"
+              src="//moonveto.com/watchnew?key=e0b9b2cc4b14f5a0702ed9aa7b4373d6"
+              width="468"
+              height="60"
+              frameBorder="0"
+              scrolling="no"
+            />
+          </div>
+        </>
       )}
     </div>
   );

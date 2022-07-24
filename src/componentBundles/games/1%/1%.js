@@ -45,16 +45,17 @@ const OnePercent = () => {
     )
   );
 
-  const initialCircleStyle = {
+  const initialSquareStyle = {
     width: "80px",
     height: "80px",
     position: "absolute",
     left: `${x + bufferX - 8000 / window.innerWidth / 2}%`,
     top: `${y + bufferY - 8000 / window.innerHeight / 2}%`,
     border: "1px solid white",
+    zIndex: "100000",
   };
 
-  const [squareStyle, setSquareStyle] = useState(initialCircleStyle);
+  const [squareStyle, setSquareStyle] = useState(initialSquareStyle);
   const [score, setScore] = useState(0);
   const [count, setCount] = useState(0);
   const [message, setMessage] = useState(null);
@@ -88,7 +89,7 @@ const OnePercent = () => {
     setBufferY(nextBufferY);
 
     setSquareStyle({
-      ...initialCircleStyle,
+      ...squareStyle,
       left: `${nextX + nextBufferX - 8000 / window.innerWidth / 2}%`,
       top: `${nextY + nextBufferY - 8000 / window.innerHeight / 2}%`,
     });

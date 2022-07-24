@@ -11,15 +11,19 @@ const Games = ({ game, setGame }) => {
 
   return (
     <div className="game">
-      <img
-        className="game-banner"
-        src={getGameBanner()}
-        alt={`${game.name} banner`}
-        onClick={handleGameOpen}
-      />
-      <h2 className="game-title" onClick={handleGameOpen}>
-        {game.name}
-      </h2>
+      <div>
+        <img
+          className="game-banner"
+          src={getGameBanner()}
+          alt={`${game.name} banner`}
+          onClick={handleGameOpen}
+        />
+      </div>
+      <div>
+        <h2 className="game-title" onClick={handleGameOpen}>
+          {game.name}
+        </h2>
+      </div>
     </div>
   );
 };
